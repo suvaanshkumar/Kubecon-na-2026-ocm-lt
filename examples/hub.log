@@ -1,0 +1,5 @@
+{"ts":1793001600100,"msg":"ManifestWork write admitted","flow":"mw_hub_apply","hub_cluster_name":"hub-us-east","mw_namespace":"ap-south","mw_name":"workload-1","generation":1,"ts_epoch_ms":1793001600100}
+{"ts":1793001600105,"msg":"ManifestWork write admitted","flow":"mw_hub_apply","hub_cluster_name":"hub-us-east","mw_namespace":"eu-west","mw_name":"workload-1","generation":1,"ts_epoch_ms":1793001600105}
+{"ts":1793001900200,"msg":"ManifestWork write admitted","flow":"mw_hub_apply","hub_cluster_name":"hub-us-east","mw_namespace":"ap-south","mw_name":"workload-1","generation":2,"ts_epoch_ms":1793001900200}
+{"ts":1793001900210,"msg":"ManifestWork write admitted","flow":"mw_hub_apply","hub_cluster_name":"hub-us-east","mw_namespace":"eu-west","mw_name":"workload-1","generation":2,"ts_epoch_ms":1793001900210}
+{"ts":1793002200300,"msg":"ManifestWork write admitted","flow":"mw_hub_apply","hub_cluster_name":"hub-us-east","mw_namespace":"ap-south","mw_name":"workload-1","generation":3,"ts_epoch_ms":1793002200300}

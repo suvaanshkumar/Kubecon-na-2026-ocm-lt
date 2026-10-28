@@ -1,0 +1,7 @@
+{
+  "name": "kubecon-na-2026-ocm-lt",
+  "private": true,
+  "type": "module",
+  "scripts": { "pdf": "node hack/export-pdf.mjs" },
+  "devDependencies": { "playwright": "1.48.2" }
+}

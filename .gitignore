@@ -1,0 +1,6 @@
+node_modules/
+deck/png/
+.DS_Store
+dist/
+.claude/
+*.pptx
