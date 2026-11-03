@@ -25,7 +25,7 @@ const count = await page.locator('.slide').count();
 mkdirSync(join(root, 'deck', 'png'), { recursive: true });
 for (let i = 1; i <= count; i++) {
   const steps = await page.locator('.slide').nth(i - 1).evaluate(
-    s => Math.max(0, ...Array.from(s.querySelectorAll('.frag'), f => +f.dataset.step)));
+    s => Math.max(0, ...Array.from(s.querySelectorAll('.frag, .frag-block'), f => +f.dataset.step)));
   for (let st = 0; st <= steps; st++) {
     await page.goto(`${deck}#${i}${st ? '.' + st : ''}`);
     await page.reload();
