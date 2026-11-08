@@ -1,4 +1,4 @@
-"""Build deck/did-it-land.pptx on top of the official CNCF KubeCon NA 2026 template.
+"""Build deck/deploy-with-ocm-with-confidence.pptx on top of the official CNCF KubeCon NA 2026 template.
 
 Usage: python3 hack/build-pptx.py <template.pptx> <out.pptx>
 

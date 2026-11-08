@@ -1,4 +1,4 @@
-// Render deck/index.html to deck/did-it-land.pdf (one 1920x1080 page per slide),
+// Render deck/index.html to deck/deploy-with-ocm-with-confidence.pdf (one 1920x1080 page per slide),
 // plus a PNG per slide under deck/png/ for quick review.
 // Usage: node hack/export-pdf.mjs   (needs `npm i playwright` and `npx playwright install chromium`)
 import { chromium } from 'playwright';
@@ -14,7 +14,7 @@ const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 await page.goto(deck);
 
 await page.pdf({
-  path: join(root, 'deck', 'did-it-land.pdf'),
+  path: join(root, 'deck', 'deploy-with-ocm-with-confidence.pdf'),
   width: '1920px',
   height: '1080px',
   printBackground: true,
@@ -36,4 +36,4 @@ for (let i = 1; i <= count; i++) {
 }
 
 await browser.close();
-console.log(`wrote deck/did-it-land.pdf and ${count} PNGs`);
+console.log(`wrote deck/deploy-with-ocm-with-confidence.pdf and ${count} PNGs`);
