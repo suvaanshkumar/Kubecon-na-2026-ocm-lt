@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Did It Land?</title>
+<title>Deploy with OCM with confidence</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -43,15 +43,7 @@
     position: absolute; left: 0; top: 0; width: 1920px; height: 150px;
     background: var(--accent-soft) url(assets/logo.png) no-repeat 120px 28px / 230px auto;
   }
-  /* Footer band: the template's honeycomb strip with the talk name and slide number. */
-  .footer {
-    position: absolute; left: 0; bottom: 0; width: 1920px; height: 76px;
-    background: var(--honey);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 120px; font-size: 22px; color: var(--ink);
-  }
-  .footer b { font-weight: 700; }
-  .slide.title-slide::before, .slide.title-slide .footer { display: none; }
+  .slide.title-slide::before { display: none; }
 
   /* Title slide mirrors the CNCF template's title layout: scene along the bottom,
      deep blue stepped band with white title, lockup top left. */
@@ -59,11 +51,14 @@
   .title-slide .scene { position: absolute; left: 0; bottom: 0; width: 1920px; height: 340px; margin: 0; object-fit: cover; object-position: bottom; }
   .title-slide .logo { position: absolute; top: 40px; left: 64px; width: 370px; height: auto; margin: 0; }
   .title-slide .tag { position: absolute; top: 56px; right: 64px; margin: 0; font-size: 22px; color: var(--ink); text-align: right; }
-  .title-slide .band { position: absolute; left: 0; top: 280px; width: 1920px; height: 460px; background: #113E82; }
+  .title-slide .band { position: absolute; left: 0; top: 230px; width: 1920px; height: 560px; background: #113E82; }
   .title-slide h1 { position: absolute; left: 64px; top: 400px; width: 1792px; margin: 0; font-size: 68px; line-height: 1.12; color: #fff; letter-spacing: -1.5px; }
   .title-slide h1 span { color: var(--honey); font-weight: 400; }
-  .title-slide .who { position: absolute; left: 64px; top: 588px; width: 1792px; margin: 0; font-size: 25px; letter-spacing: 0.2px; color: var(--honey); }
+  .title-slide .headline { position: absolute; left: 64px; top: 308px; width: 1792px; margin: 0; font-size: 60px; line-height: 1.1; font-weight: 700; color: #fff; letter-spacing: -1px; }
+  .title-slide .photo { position: absolute; right: 64px; top: 130px; width: 200px; height: 200px; margin: 0; border-radius: 50%; object-fit: cover; object-position: 50% 22%; border: 8px solid #fff; box-shadow: 0 6px 24px rgba(5, 34, 67, 0.28); background: #fff; }
+  .title-slide .who { position: absolute; left: 64px; top: 700px; width: 1792px; margin: 0; font-size: 25px; letter-spacing: 0.2px; color: var(--honey); }
   .title-slide .who b { color: #fff; }
+  .title-slide .gw { position: absolute; left: 64px; top: 744px; width: 1792px; margin: 0; font-size: 22px; color: var(--honey); }
   .usecase h2, .ocm h2 { margin-bottom: 24px; }
   .why .label { margin-bottom: 28px; }
   .why h2 { margin: 22px 0 26px; font-size: 54px; }
@@ -83,9 +78,15 @@
     background: var(--ink); color: #fff; font-weight: 700; font-size: 30px; display: grid; place-items: center; }
   .arrive h2 { margin-bottom: 32px; }
   .closing { justify-content: center; }
+  .now .facts { max-width: 1500px; }
+  .now .facts li + li { margin-top: 44px; }
   .closing h2 { font-size: 92px; margin-bottom: 36px; }
-  .closing .callout { margin-top: 0; max-width: 1400px; }
+  .closing .callout { margin-top: 0; max-width: 1280px; }
   .closing .hex { position: absolute; right: 120px; bottom: 140px; width: 520px; height: auto; margin: 0; }
+  .qr { position: absolute; right: 120px; top: 230px; width: 340px; margin: 0; padding: 22px 22px 20px; background: #fff; border: 2px solid var(--line); border-radius: 16px; text-align: center; box-shadow: 0 6px 24px rgba(5, 34, 67, 0.12); }
+  .qr svg { display: block; width: 280px; height: 280px; margin: 0 auto; }
+  .qr b { display: block; margin-top: 14px; font-size: 25px; line-height: 1.2; color: var(--ink); white-space: nowrap; }
+  .qr span { display: block; margin-top: 6px; font-family: var(--mono); font-size: 18px; color: var(--muted); white-space: nowrap; }
   .draw.timer { transition: stroke-dashoffset 2.4s linear; }
   .frag.on.late { transition-delay: 0.6s; }
   .frag-block { opacity: 0; transition: opacity 0.45s ease; }
@@ -175,17 +176,20 @@
   <div class="band"></div>
   <img class="logo" src="assets/logo.png" alt="KubeCon + CloudNativeCon North America 2026">
   <p class="tag">OCM Project Lightning Talk &middot; Salt Lake City</p>
-  <h1><span>Hub &rarr; managed cluster:</span><br>how long did the workload take? Did it arrive?</h1>
+  <img class="photo" src="assets/suvaansh.jpg" alt="Suvaansh Kumar">
+  <p class="headline">Deploy with OCM with confidence.</p>
+  <h1><span>Hub &rarr; managed cluster</span><br>how long did the workload take? Did it arrive?</h1>
   <p class="who"><b>Suvaansh Kumar</b> &middot; Software Engineer at Guidewire &middot; Open Cluster Management maintainer</p>
+  <p class="gw">Guidewire is a software and platform provider for property and casualty (P&amp;C) insurers.</p>
 </section>
 
 <!-- 2. What OCM is -->
 <section class="slide ocm" data-n="2">
   <p class="label">The project</p>
-  <h2>Open Cluster Management</h2>
+  <h2>Open Cluster Management (OCM)</h2>
   <div class="ocm-grid">
     <ul class="facts">
-      <li><b>CNCF Sandbox project</b>, now in its <b>6th year</b></li>
+      <li><b>CNCF Incubating project</b>, now in its <b>6th year</b></li>
       <li><b>Hub and spoke</b> architecture with a centralized view of your entire fleet</li>
     </ul>
     <svg viewBox="0 0 900 420" width="880" height="410" role="img" aria-label="A hub cluster at the left connects to three managed clusters at the right, each running an OCM agent.">
@@ -215,23 +219,30 @@
 
 <!-- 3. Why: builds one step per click -->
 <section class="slide why" data-n="3">
-  <p class="label">Why we are proposing this</p>
-  <svg viewBox="0 0 1680 190" width="1380" height="156" role="img" aria-label="Today a CI/CD pipeline deploys directly to the managed cluster.">
+  <p class="label">At Guidewire &middot; what is the stress this takes away?</p>
+  <svg viewBox="0 0 1680 360" width="1380" height="296" role="img" aria-label="Today a CI/CD pipeline deploys directly to multiple managed clusters: us-west, ap-south and eu-west.">
     <defs>
       <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E9C68"/></marker>
     </defs>
     <!-- 1: Today, direct to the cluster -->
     <g class="frag" data-step="1">
-    <text x="0" y="34" font-size="26" font-weight="700" letter-spacing="1.5" fill="#4F607A">TODAY</text>
-    <rect x="0" y="60" width="420" height="120" rx="18" fill="#F3F7FC" stroke="#4F607A" stroke-width="3"/>
-    <text x="210" y="112" text-anchor="middle" font-size="34" font-weight="700" fill="#052243">CI/CD pipeline</text>
-    <text x="210" y="152" text-anchor="middle" font-size="24" fill="#4F607A">deploys straight to the cluster</text>
-    <rect x="1260" y="60" width="420" height="120" rx="18" fill="#E6F6EF" stroke="#2E9C68" stroke-width="3"/>
-    <text x="1470" y="112" text-anchor="middle" font-size="34" font-weight="700" fill="#052243">Managed cluster</text>
-    <text x="1470" y="152" text-anchor="middle" font-size="24" fill="#4F607A">eu-west</text>
-    <path class="draw" d="M426,120 L1248,120" stroke="#2E9C68" stroke-width="5" fill="none" marker-end="url(#arr-green)"/>
-    <text x="837" y="100" text-anchor="middle" font-size="27" font-weight="700" fill="#2E9C68">years of hardening &middot; known latency &middot; trusted</text>
-    <text x="837" y="166" text-anchor="middle" font-size="24" fill="#4F607A">If it fails, the pipeline tells you.</text>
+    <text x="0" y="34" font-size="26" font-weight="700" letter-spacing="1.5" fill="#4F607A">BEFORE USING OCM</text>
+    <rect x="0" y="140" width="420" height="120" rx="18" fill="#F3F7FC" stroke="#4F607A" stroke-width="3"/>
+    <text x="210" y="192" text-anchor="middle" font-size="34" font-weight="700" fill="#052243">CI/CD pipeline</text>
+    <text x="210" y="232" text-anchor="middle" font-size="24" fill="#4F607A">deploys straight to the clusters</text>
+    <rect x="1260" y="60" width="420" height="80" rx="18" fill="#E6F6EF" stroke="#2E9C68" stroke-width="3"/>
+    <text x="1470" y="96" text-anchor="middle" font-size="30" font-weight="700" fill="#052243">Managed cluster</text>
+    <text x="1470" y="124" text-anchor="middle" font-size="22" fill="#4F607A">us-west</text>
+    <rect x="1260" y="160" width="420" height="80" rx="18" fill="#E6F6EF" stroke="#2E9C68" stroke-width="3"/>
+    <text x="1470" y="196" text-anchor="middle" font-size="30" font-weight="700" fill="#052243">Managed cluster</text>
+    <text x="1470" y="224" text-anchor="middle" font-size="22" fill="#4F607A">ap-south</text>
+    <rect x="1260" y="260" width="420" height="80" rx="18" fill="#E6F6EF" stroke="#2E9C68" stroke-width="3"/>
+    <text x="1470" y="296" text-anchor="middle" font-size="30" font-weight="700" fill="#052243">Managed cluster</text>
+    <text x="1470" y="324" text-anchor="middle" font-size="22" fill="#4F607A">eu-west</text>
+    <path class="draw" d="M426,200 L1248,100" stroke="#2E9C68" stroke-width="5" fill="none" marker-end="url(#arr-green)"/>
+    <path class="draw" d="M426,200 L1248,200" stroke="#2E9C68" stroke-width="5" fill="none" marker-end="url(#arr-green)"/>
+    <path class="draw" d="M426,200 L1248,300" stroke="#2E9C68" stroke-width="5" fill="none" marker-end="url(#arr-green)"/>
+    <text x="837" y="84" text-anchor="middle" font-size="27" font-weight="700" fill="#2E9C68">years of hardening &middot; known latency &middot; trusted</text>
     </g>
 
   </svg>
@@ -272,8 +283,8 @@
 
 <!-- 4. Use case -->
 <section class="slide usecase" data-n="4">
-  <p class="label">The use case</p>
-  <h2>At Guidewire: one hub cluster, many regions</h2>
+  <p class="label">The use case at Guidewire</p>
+  <h2>One hub cluster, many regions</h2>
   <svg viewBox="0 0 1680 540" width="1556" height="500" role="img" aria-label="A hub in us-east sends workloads to managed clusters in us-west, ap-south and eu-west; latency to two is unknown and the third never received it">
     <defs>
       <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
@@ -348,7 +359,8 @@
     <g>
       <circle cx="95" cy="150" r="32" fill="#F3F7FC" stroke="#052243" stroke-width="3"/>
       <path d="M40,260 C40,205 150,205 150,260 Z" fill="#F3F7FC" stroke="#052243" stroke-width="3"/>
-      <text x="95" y="300" text-anchor="middle" font-size="28" fill="#052243">User</text>
+      <text x="95" y="298" text-anchor="middle" font-size="26" fill="#052243">User /</text>
+      <text x="95" y="330" text-anchor="middle" font-size="24" fill="#052243">CI/CD pipelines</text>
 
       <rect x="230" y="60" width="560" height="360" rx="20" fill="#E3F6FF" stroke="#113E82" stroke-width="3"/>
       <text x="260" y="108" font-size="32" font-weight="700" fill="#052243">Hub cluster <tspan font-weight="400" fill="#4F607A">· us-east</tspan></text>
@@ -505,23 +517,34 @@ timestamp=<span class="t2">08:05:00.634 UTC</span></pre>
   </div>
 </section>
 
-<!-- 9. Close -->
-<section class="slide closing" data-n="9">
+<!-- 9. Where Guidewire is now -->
+<section class="slide now" data-n="9">
+  <p class="label">Now at Guidewire</p>
+  <h2>One hub, many clusters, full confidence</h2>
+  <ul class="facts">
+    <li>We <b>confidently deploy workloads with OCM</b> from the hub to a <b>large number of managed clusters</b></li>
+    <li>We <b>clearly observe the latency</b> of every rollout: <span class="t2">T2</span> &minus; <span class="t1">T1</span></li>
+    <li>We <b>detect when OCM caused a workload not to reach</b> a managed cluster: <span class="warn">no T2</span></li>
+  </ul>
+</section>
+
+<!-- 10. Close -->
+<section class="slide closing" data-n="10">
   <img class="hex" src="assets/hex-icons.png" alt="">
+  <div class="qr">
+    <svg role="img" aria-label="QR code: Suvaansh Kumar on LinkedIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h31v31H0z"/><path stroke="#052243" d="M1 1.5h7m1 0h2m1 0h1m3 0h6m1 0h7M1 2.5h1m5 0h1m1 0h1m3 0h1m1 0h2m1 0h2m3 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h1m2 0h4m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h2m1 0h1m5 0h3m2 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m2 0h3m1 0h1m5 0h1m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m2 0h1m1 0h2m1 0h1m1 0h5m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h1m1 0h5m2 0h4M1 9.5h1m1 0h2m1 0h3m2 0h10m2 0h1m2 0h1m1 0h2M1 10.5h1m8 0h1m1 0h2m3 0h9m3 0h1M1 11.5h2m1 0h6m3 0h1m1 0h1m1 0h2m2 0h1m1 0h2m2 0h2M1 12.5h3m1 0h2m2 0h1m2 0h6m1 0h1m1 0h5m3 0h1M2 13.5h4m1 0h1m2 0h2m1 0h1m2 0h3m1 0h1m5 0h2M2 14.5h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h2m2 0h2m1 0h1m3 0h3M1 15.5h2m1 0h1m2 0h1m3 0h3m1 0h1m1 0h4m1 0h1m2 0h1m1 0h3M1 16.5h2m3 0h1m1 0h2m2 0h3m2 0h1m1 0h6m3 0h1M2 17.5h1m1 0h2m1 0h2m1 0h1m5 0h1m3 0h3m1 0h3m1 0h1M3 18.5h1m1 0h1m3 0h1m1 0h1m2 0h1m1 0h1m1 0h1m2 0h1m4 0h3M1 19.5h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h3m2 0h5m1 0h1M3 20.5h2m1 0h1m2 0h2m1 0h1m5 0h2m1 0h4m2 0h1M2 21.5h2m3 0h1m2 0h1m1 0h1m1 0h1m2 0h3m1 0h7M9 22.5h2m2 0h3m1 0h1m3 0h1m3 0h5M1 23.5h7m1 0h1m2 0h3m2 0h1m2 0h2m1 0h1m1 0h2m1 0h1M1 24.5h1m5 0h1m1 0h1m1 0h2m4 0h1m1 0h1m1 0h1m3 0h2m1 0h1M1 25.5h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h2m1 0h1m2 0h5m1 0h2M1 26.5h1m1 0h3m1 0h1m1 0h1m2 0h8m1 0h2m1 0h3m2 0h1M1 27.5h1m1 0h3m1 0h1m1 0h1m1 0h2m4 0h1m1 0h1m4 0h1m2 0h1m1 0h1M1 28.5h1m5 0h1m3 0h3m1 0h1m1 0h1m3 0h1m2 0h1m1 0h1m1 0h1M1 29.5h7m1 0h1m1 0h2m4 0h1m1 0h4m1 0h1m3 0h1"/></svg>
+    <b>Connect on LinkedIn</b>
+    <span>linkedin.com/in/suvaansh</span>
+  </div>
   <h2>Thank you</h2>
   <div class="callout">Running into issues? Reach us in <b>#open-cluster-mgmt</b> on Kubernetes Slack</div>
+  <div class="callout" style="margin-top:28px">Find me at the <b>KubeVela booth</b> &middot; Kiosk <b>P-3A</b><br><span class="muted" style="font-size:32px">Solutions Showcase | Level 1 | Hall 5</span></div>
   <p class="muted" style="font-size:30px;margin-top:32px">Thanks to the Open Cluster Management maintainers and contributors.</p>
 </section>
 
 
 <script>
   const slides = Array.from(document.querySelectorAll('.slide'));
-  slides.forEach(s => {
-    const f = document.createElement('div');
-    f.className = 'footer';
-    f.innerHTML = '<span><b>OCM Project Lightning Talk</b> &middot; KubeCon + CloudNativeCon North America 2026 &middot; Salt Lake City</span><span>' + s.dataset.n + '</span>';
-    s.appendChild(f);
-  });
   let current = 0;
   let step = 0;
 
